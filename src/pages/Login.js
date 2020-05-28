@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { apiPath } from "../configs/configs";
-import homeIcon from '../assets/SVG/home.svg'
+import backIcon from '../assets/SVG/back.svg'
 import { motion } from "framer-motion"
 import bgSignin from '../assets/png/bgsignin.png'
 
@@ -39,7 +39,7 @@ class Login extends Component {
                 else {
                     localStorage.setItem('token', JSON.stringify(payload.token));
                     alert("logado")
-                    //window.location.href = '/'
+                    window.location.href = '/home'
                 }
             })
         })
@@ -50,7 +50,7 @@ class Login extends Component {
             <motion.div  animate={{x: '0vh', opacity: 1}} initial={{x: '-30vh', opacity: 0}} transition={{duration: 0.3}} >
                 <DefaultContainer heightDiv="5vh" style={{ justifyContent: 'flex-start', paddingTop: 20 }}>
                     <Link to="/">
-                        <img src={homeIcon} style={{ height: "5vh", paddingLeft: 20, paddingTop: 20 }} alt="Voltar" />
+                        <img src={backIcon} style={{ height: "6vh", paddingLeft: 20, paddingTop: 20 }} alt="Voltar" />
                     </Link>
                 </DefaultContainer>
                 <DefaultContainer heightDiv="62vh">
@@ -70,7 +70,7 @@ class Login extends Component {
                     </form>
                 </DefaultContainer>
 
-                <DefaultContainer heightDiv="30vh">
+                <DefaultContainer heightDiv="152px">
                     <img src={bgSignin}  width="100%" style={{position: "absolute", bottom: "-5vh", maxHeight: "30vh"}} alt=""/>
                 </DefaultContainer>
             </motion.div>

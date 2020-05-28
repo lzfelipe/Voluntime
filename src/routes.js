@@ -8,6 +8,7 @@ import GlobalFonts from './fonts/fonts';
 import Login from './pages/Login'
 import Main from './pages/Main'
 import Registro from './pages/Registro'
+import Home from './pages/Home'
 
 export default class App extends Component {
   render() {
@@ -23,6 +24,7 @@ export default class App extends Component {
           <Route path="/" exact component={Main} />
           <Route path="/login"  component={Login} />
           <Route path="/registro" component={Registro} />
+          <Route path="/home" component={Home} />
         </Switch>
       </Router>
     );

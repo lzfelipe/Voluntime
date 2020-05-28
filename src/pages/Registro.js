@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import { motion } from "framer-motion"
-import homeIcon from '../assets/SVG/home.svg'
+import backIcon from '../assets/SVG/back.svg'
 import { Link } from "react-router-dom";
 //Components
 import { DefaultBtn, DefaultInput, DefaultContainer, DefaultTitle, DefaultTextArea } from './styles/defaultComponents'
@@ -13,7 +13,7 @@ class Registro extends Component {
 
             <DefaultContainer heightDiv="5vh" style={{ justifyContent: 'flex-start', paddingTop: 20 }}>
                     <Link to="/">
-                        <img src={homeIcon} style={{ height: "5vh", paddingLeft: 20}} alt="Voltar" />
+                        <img src={backIcon} style={{ height: "6vh", paddingLeft: 20}} alt="Voltar" />
                     </Link>
             </DefaultContainer>
 

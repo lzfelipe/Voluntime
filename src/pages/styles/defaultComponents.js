@@ -14,6 +14,7 @@ export const DefaultBtn = styled.button`
            background-color: #FF7F00;
            cursor: pointer;
         }
+
 `
 
 export const DefaultInput = styled.input`
@@ -31,6 +32,11 @@ export const DefaultInput = styled.input`
                 color: grey;
                 text-align: left;
         }
+
+        :focus{
+                outline: none;
+        }
+        
 `
 
 export const DefaultTextArea = styled.textarea`
@@ -81,3 +87,36 @@ export const DefaultText = styled.p`
         width: 70%;
 `
 
+export const FilterRadios = styled.div`
+
+label { 
+    height: fit-content;
+    width: fit-content;
+    margin:4px;
+    background-color: #FFF;
+    border-radius: 20px;
+    border:1px solid #ff4f00;
+    color: #ff4f00;
+    overflow:auto;
+}
+
+label > span {
+    text-align:center;
+    font-size: 15px;
+    padding: 3px 10px;
+    display:block;
+    font-family: 'ElaineSansRegular';
+}
+
+label input {
+    position:absolute;
+    top:-20px;
+}
+
+input:checked + span {
+    background-color: #ff4f00;
+    color: #F7F7F7;
+}
+    
+
+`
