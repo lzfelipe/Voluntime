@@ -117,6 +117,5 @@ input:checked + span {
     background-color: #ff4f00;
     color: #F7F7F7;
 }
-    
 
 `
