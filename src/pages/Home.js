@@ -20,6 +20,9 @@ function filterCausa(causa, selected){
     return (causa === selected)
 }
 
+function filterPeriodo(periodo, selected){
+    return (periodo === selected)
+}
 
 
 class Home extends Component {
@@ -27,23 +30,62 @@ class Home extends Component {
         openFilters: false,
         term: "",
         ongs: [
-            {nome: "Ong de Macacos", causa: "Animais", distancia: "4"},
-            {nome: "Fale com Idosos", causa: "Idosos", distancia: "99.9"},
-            {nome: "Adote uma árvore", causa: "Meio Ambiente", distancia: "99.9"},
-            {nome: "Ong de Lhamas", causa: "Animais", distancia: "99.9"},
-            {nome: "Ong de Lhamas 2", causa: "Animais", distancia: "99.9"},
-            {nome: "Ajude quem precisa", causa: "Moradores de Rua", distancia: "99.9"},
-            {nome: "Doe comida", causa: "Alimento", distancia: "99.9"},
-            {nome: "Ajude os Mendigos", causa: "Moradores de Rua", distancia: "99.9"},
+            {nome: "Ong de Macacos", causa: "Animais", distancia: 4, periodo: "noite"},
+            {nome: "Fale com Idosos", causa: "Idosos", distancia: 12.7, periodo: "manha"},
+            {nome: "Adote uma árvore", causa: "Meio Ambiente", distancia: 2.9, periodo: "noite"},
+            {nome: "Ong de Lhamas", causa: "Animais", distancia: 3.2, periodo: "tarde"},
+            {nome: "Ong de Lhamas 2", causa: "Animais", distancia: 20.1, periodo: "manha"},
+            {nome: "Ajude quem precisa", causa: "Moradores de Rua", distancia: 18.9, periodo: "tarde"},
+            {nome: "Doe comida", causa: "Alimento", distancia: 7.4, periodo: "noite"},
+            {nome: "Ajude os Mendigos", causa: "Moradores de Rua", distancia: 2.3, periodo: "manha"},
         ],
         filtroAtivado: false,
         filtro: "",
     }
-
     searchHandler(event){
         this.setState({ term : event.target.value })
       }
 
+      
+    filterHandler(filtro){
+        const { term, ongs } = this.state;
+        if (filtro === "Animais" || filtro === "Idosos" || filtro === "Meio Ambiente" || filtro === "Moradores de Rua" || filtro === "Alimento") {
+            return (
+                ongs.filter(searchingFor(term))
+                .filter(ong => filterCausa(ong.causa, this.state.filtro))
+                .flatMap(ong => {
+                return( 
+                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome}/>
+                    )
+                })
+            )
+        }
+
+        else if (filtro === "tarde" || filtro === "manha" || filtro === "noite") {
+            return (
+                ongs.filter(searchingFor(term))
+                .filter(ong => filterPeriodo(ong.periodo, this.state.filtro))
+                .flatMap(ong => {
+                return( 
+                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome}/>
+                    )
+                })
+            )
+        }
+
+        else if (filtro === "distancia") {
+            return (
+                ongs.sort((a, b) => a.distancia - b.distancia)
+                .filter(searchingFor(term))
+                .flatMap(ong => {
+                return( 
+                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome}/>
+                    )
+                })
+                
+            )
+        }
+    }
 
     render() {
         const { term, ongs } = this.state;
@@ -70,7 +112,7 @@ class Home extends Component {
 
                     {
                         !this.state.openFilters ? (
-                            <motion.div animate={{height: 0, opacity: 0}} initial={{height: 150, opacity: 0}} transition={{duration: .15}} style={{marginBottom: 20}} >
+                            <motion.div animate={{height: 0, opacity: 0}} initial={{height: 150, opacity: 0}} transition={{duration: .15}} style={{marginBottom: 20, zIndex: -200}} >
                                 <FiltersMenu>
                                     <label><input type="radio" name="toggle"/><span>Menor distância</span></label>
                                     <label><input type="radio" name="toggle"/><span>Animais</span></label>
@@ -88,7 +130,10 @@ class Home extends Component {
                         (
                         <motion.div animate={{height: 150, opacity: 1}} initial={{height: 0, opacity: 0}} transition={{duration: .2, stiffness: 80, restDelta: 2}} style={{marginBottom: 20}} >
                             <FiltersMenu>
-                                <label><input type="checkbox" name="toggle"/><span>Menor distância</span></label>
+                                <label><input type="radio" name="toggle" onClick={() => { 
+                                    this.setState({filtroAtivado: true})
+                                    this.setState({filtro: "distancia"})
+                                }}/><span>Menor distância</span></label>
                                 <label><input type="radio" name="toggle" onClick={() => { 
                                     this.setState({filtroAtivado: true})
                                     this.setState({filtro: "Animais"})
@@ -105,9 +150,18 @@ class Home extends Component {
                                     this.setState({filtroAtivado: true})
                                     this.setState({filtro: "Alimento"})
                                 }} /><span>Alimento</span></label>
-                                <label><input type="checkbox" name="toggle"/><span>Funciona de manhã</span></label>
-                                <label><input type="checkbox" name="toggle"/><span>Funciona de tarde</span></label>
-                                <label><input type="checkbox" name="toggle"/><span>Funciona de noite</span></label>
+                                <label><input type="radio" name="toggle" onClick={() => { 
+                                    this.setState({filtroAtivado: true})
+                                    this.setState({filtro: "manha"})
+                                }} /><span>Funciona de manhã</span></label>
+                                <label><input type="radio" name="toggle" onClick={() => { 
+                                    this.setState({filtroAtivado: true})
+                                    this.setState({filtro: "tarde"})
+                                }} /><span>Funciona de tarde</span></label>
+                                <label><input type="radio" name="toggle"onClick={() => { 
+                                    this.setState({filtroAtivado: true})
+                                    this.setState({filtro: "noite"})
+                                }} /><span>Funciona de noite</span></label>
                                 <label><input type="radio" name="toggle" defaultChecked={true}  onClick={() => { 
                                     this.setState({filtroAtivado: false})
                                 }} /><span>Sem Filtros</span></label>
@@ -119,15 +173,10 @@ class Home extends Component {
 
 
                 {
+
                     this.state.filtroAtivado ?
                     (
-                        ongs.filter(searchingFor(term))
-                        .filter(ong => filterCausa(ong.causa, this.state.filtro))
-                        .flatMap(ong => {
-                        return( 
-                            <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome}/>
-                          )
-                        })
+                        this.filterHandler(this.state.filtro)
                     )
                     :
                     (
