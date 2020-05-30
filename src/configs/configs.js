@@ -1,3 +1,3 @@
 module.exports = {
-    apiPath: "http://localhost:3333"
+    apiPath: "http://192.168.0.15:3333"
 }

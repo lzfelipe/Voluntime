@@ -9,6 +9,7 @@ import Login from './pages/Login'
 import Main from './pages/Main'
 import Registro from './pages/Registro'
 import Home from './pages/Home'
+import OngPage from './pages/ongPage'
 
 export default class App extends Component {
   render() {
@@ -25,6 +26,12 @@ export default class App extends Component {
           <Route path="/login"  component={Login} />
           <Route path="/registro" component={Registro} />
           <Route path="/home" component={Home} />
+
+          <Route path="/ong/:nome" render={(props) => (
+                <OngPage key={props.match.params.nome} {...props} />
+              )}
+            />
+
         </Switch>
       </Router>
     );
