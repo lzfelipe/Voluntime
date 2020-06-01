@@ -27,7 +27,7 @@ export default class App extends Component {
           <Route path="/registro" component={Registro} />
           <Route path="/home" component={Home} />
 
-          <Route path="/ong/:nome" render={(props) => (
+          <Route path="/ong/:id" render={(props) => (
                 <OngPage key={props.match.params.nome} {...props} />
               )}
             />

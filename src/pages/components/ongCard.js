@@ -8,17 +8,13 @@ class ongCard extends Component {
     state = {
         nome: this.props.nome,
         causa: this.props.causa,
-        distancia: this.props.distancia
-    }
-
-    newTo = {
-        pathname: `/ong/${this.state.nome}`, 
-        ongName: this.state.nome
+        distancia: this.props.distancia,
+        id: this.props.id
     }
 
     render() {
         return (
-            <Link to={this.newTo} style={{textDecoration: "none"}}>
+            <Link to={`/ong/${this.state.id}`} style={{textDecoration: "none"}}>
                 <DefaultContainer heightDiv="100px" widthDiv="90%" 
                     style={{
                         alignContent: 'center', 

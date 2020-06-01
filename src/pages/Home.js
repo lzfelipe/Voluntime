@@ -31,14 +31,14 @@ class Home extends Component {
         openFilters: false,
         term: "",
         ongs: [
-            {nome: "Ong de Macacos", causa: "Animais", distancia: 4, periodo: "noite", fotoURL},
-            {nome: "Fale com Idosos", causa: "Idosos", distancia: 12.7, periodo: "manha", fotoURL},
-            {nome: "Adote uma árvore", causa: "Meio Ambiente", distancia: 2.9, periodo: "noite", fotoURL},
-            {nome: "Ong de Lhamas", causa: "Animais", distancia: 3.2, periodo: "tarde", fotoURL},
-            {nome: "Ong de Lhamas 2", causa: "Animais", distancia: 20.1, periodo: "manha", fotoURL},
-            {nome: "Ajude quem precisa", causa: "Moradores de Rua", distancia: 18.9, periodo: "tarde", fotoURL},
-            {nome: "Doe comida", causa: "Alimento", distancia: 7.4, periodo: "noite", fotoURL},
-            {nome: "Ajude os Mendigos", causa: "Moradores de Rua", distancia: 2.3, periodo: "manha", fotoURL},
+            {id: 1, nome: "Ong de Macacos", causa: "Animais", distancia: 4, periodo: "noite", fotoURL},
+            {id: 2, nome: "Fale com Idosos", causa: "Idosos", distancia: 12.7, periodo: "manha", fotoURL},
+            {id: 3, nome: "Adote uma árvore", causa: "Meio Ambiente", distancia: 2.9, periodo: "noite", fotoURL},
+            {id: 4, nome: "Ong de Lhamas", causa: "Animais", distancia: 3.2, periodo: "tarde", fotoURL},
+            {id: 5, nome: "Ong de Lhamas 2", causa: "Animais", distancia: 20.1, periodo: "manha", fotoURL},
+            {id: 6, nome: "Ajude quem precisa", causa: "Moradores de Rua", distancia: 18.9, periodo: "tarde", fotoURL},
+            {id: 7, nome: "Doe comida", causa: "Alimento", distancia: 7.4, periodo: "noite", fotoURL},
+            {id: 8, nome: "Ajude os Mendigos", causa: "Moradores de Rua", distancia: 2.3, periodo: "manha", fotoURL},
         ],
         filtroAtivado: false,
         filtro: "distancia",
@@ -56,7 +56,7 @@ class Home extends Component {
                 .filter(ong => filterCausa(ong.causa, this.state.filtro))
                 .flatMap(ong => {
                 return( 
-                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome} fotoURL={ong.fotoURL}/>
+                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome} fotoURL={ong.fotoURL} id={ong.id}/>
                     )
                 })
             )
@@ -68,7 +68,7 @@ class Home extends Component {
                 .filter(ong => filterPeriodo(ong.periodo, this.state.filtro))
                 .flatMap(ong => {
                 return( 
-                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome} fotoURL={ong.fotoURL}/>
+                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome} fotoURL={ong.fotoURL} id={ong.id}/>
                     )
                 })
             )
@@ -80,7 +80,7 @@ class Home extends Component {
                 .filter(searchingFor(term))
                 .flatMap(ong => {
                 return( 
-                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome} fotoURL={ong.fotoURL}/>
+                    <OngCard nome={ong.nome} causa={ong.causa} distancia={ong.distancia} key={ong.nome} fotoURL={ong.fotoURL} id={ong.id}/>
                     )
                 })
                 

@@ -119,3 +119,10 @@ input:checked + span {
 }
 
 `
+export const DefaultSubTitle = styled.h2 `
+        width: 100%;
+        color: #002953;
+        font-family: 'ElaineSansRegular';
+        text-align: center;
+        height: 10%
+`
