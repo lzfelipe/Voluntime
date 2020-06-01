@@ -15,7 +15,7 @@ export default class App extends Component {
   render() {
     return (
       <Router>
-        <style jsx global>
+        <style jsx="true" global="true">
         {`body { margin: 0px; padding: 0px; overflow-x: hidden; max-width: 100vw; -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
             box-sizing: border-box;}`}

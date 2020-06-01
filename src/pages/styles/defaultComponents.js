@@ -67,6 +67,8 @@ export const DefaultContainer = styled.div`
         justify-content: center;
         flex-wrap: wrap;
         background-color: ${props => props.bgColor || "#FFF"};
+
+        ::-webkit-scrollbar {display:none;}
 `
 
 export const DefaultTitle = styled.h1`
@@ -124,5 +126,6 @@ export const DefaultSubTitle = styled.h2 `
         color: #002953;
         font-family: 'ElaineSansRegular';
         text-align: center;
-        height: 10%
+        height: 10%;
+        font-size: 20px
 `
