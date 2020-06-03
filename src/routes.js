@@ -10,6 +10,7 @@ import Main from './pages/Main'
 import Registro from './pages/Registro'
 import Home from './pages/Home'
 import OngPage from './pages/ongPage'
+import Profile from "./pages/Profile";
 
 export default class App extends Component {
   render() {
@@ -26,6 +27,7 @@ export default class App extends Component {
           <Route path="/login"  component={Login} />
           <Route path="/registro" component={Registro} />
           <Route path="/home" component={Home} />
+          <Route path="/perfil" component={Profile} />
 
           <Route path="/ong/:id" render={(props) => (
                 <OngPage key={props.match.params.nome} {...props} />

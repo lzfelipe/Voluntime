@@ -9,6 +9,7 @@ import closeIcon from '../assets/SVG/close.svg'
 import OngCard from './components/ongCard'
 import FiltersMenu from './components/filtersMenu'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 function searchingFor(nome) {
     return function(x){
@@ -95,7 +96,10 @@ class Home extends Component {
                 <DefaultContainer style={{alignContent: 'center', alignItems: "center"}} heightDiv="20vh" bgColor="#FF4F00">
 
                         <DefaultTitle style={{alignSelf: 'center', color: "#FFF"}}>ONGS</DefaultTitle>
+                        
+                        <Link to="/perfil">
                         <img src={defaultUser} style={{alignSelf: 'center', height: '10vh'}} alt="Foto de usuário"/>
+                        </Link>
 
                 </DefaultContainer>
 
