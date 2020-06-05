@@ -38,7 +38,6 @@ class Login extends Component {
                 }
                 else {
                     localStorage.setItem('token', JSON.stringify(payload.token));
-                    alert("logado")
                     window.location.href = '/home'
                 }
             })

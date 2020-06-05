@@ -31,7 +31,6 @@ class ongPage extends Component {
         .then(response => { 
             response.json()
             .then(async ong => {
-                const addressEncoded = encodeURI(ong.address)
 
                 this.setState({nome: ong.nome})
                 this.setState({outrasFotos: ong.profilePhotos})
@@ -40,7 +39,8 @@ class ongPage extends Component {
                 this.setState({endereco: ong.address})    
                 this.setState({lat: ong.lat})
                 this.setState({lng: ong.lng})
-        
+                
+                console.log(ong)
             })
         })
     }
@@ -53,12 +53,12 @@ class ongPage extends Component {
                 <DefaultContainer heightDiv="10%" bgColor="#FF4F00" widthDiv="100%" style={{justifyContent: "space-around", alignContent: 'center', alignItems: 'center'}}>
                     <h1 style={{fontFamily: "ElaineSansRegular", color: 'white', fontSize: 22, marginLeft: "-4vw"}}>{this.state.nome}</h1>
                     <Link to="/home">
-                    <img src={closeIcon} height="35px" style={{marginLeft: "15vw"}}></img>
+                    <img src={closeIcon} height="35px" style={{marginLeft: "15vw"}} alt="Voltar"></img>
                     </Link>
                 </DefaultContainer>
 
                 <DefaultContainer heightDiv="fit-content" widthDiv="100%" style={{justifyContent: "space-around", alignItems: 'center', paddingTop: 20}}>
-                    <img src={this.state.fotoPerfil} height="150px" width="150px"/>
+                    <img src={this.state.fotoPerfil} height="150px" width="150px" alt="Logo da ONG"/>
                     <DefaultSubTitle>{this.state.nome}</DefaultSubTitle>
                 </DefaultContainer>
 
@@ -68,11 +68,11 @@ class ongPage extends Component {
 
             <DefaultContainer heightDiv="fit-content" widthDiv="100%" style={{marginInlineEnd: 200}}>
                 <DefaultContainer heightDiv="200px" widthDiv="100%" style={{overflow: "scroll", justifyContent: 'space-around', flexWrap: 'nowrap'}}>
-                        <img src={this.state.outrasFotos[0]} height="60%" width="45%" style={{opacity: 0}} />
-                        <img src={this.state.outrasFotos[0]} height="80%" width="50%" style={{borderRadius: 15, marginRight: 20, maxHeight: 150, maxWidth: 150}}/>
-                        <img src={this.state.outrasFotos[1]} height="80%" width="50%" style={{borderRadius: 15, marginRight: 20, maxHeight: 150, maxWidth: 150}}/>
-                        <img src={this.state.outrasFotos[2]} height="80%" width="50%" style={{borderRadius: 15, maxHeight: 150, maxWidth: 150}}/>
-                        <img src={this.state.outrasFotos[0]} height="60%" width="6%" style={{opacity: 0}}/>
+                        <img src={this.state.outrasFotos[0]} height="60%" width="45%" style={{opacity: 0}} alt=""/>
+                        <img src={this.state.outrasFotos[0]} height="80%" width="50%" style={{borderRadius: 15, marginRight: 20, maxHeight: 150, maxWidth: 150}} alt="Foto da ONG 1"/>
+                        <img src={this.state.outrasFotos[1]} height="80%" width="50%" style={{borderRadius: 15, marginRight: 20, maxHeight: 150, maxWidth: 150}} alt="Foto da ONG 2"/>
+                        <img src={this.state.outrasFotos[2]} height="80%" width="50%" style={{borderRadius: 15, maxHeight: 150, maxWidth: 150}} alt="Foto da ONG 3"/>
+                        <img src={this.state.outrasFotos[0]} height="60%" width="6%" style={{opacity: 0}} alt=""/>
                 </DefaultContainer>
             </DefaultContainer>
 
@@ -92,7 +92,9 @@ class ongPage extends Component {
                         </Marker>
                     </Map>
 
+                    <Link to={{pathname: `/aplicar/${this.state.nome}/${this.props.match.params.id}`}} >
                     <DefaultBtn style={{backgroundColor: 'white', color: "#FF4F00"}}>Candidatar-se</DefaultBtn>
+                    </Link>
                 </DefaultContainer>
 
             </motion.div>

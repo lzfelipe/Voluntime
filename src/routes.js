@@ -11,6 +11,8 @@ import Registro from './pages/Registro'
 import Home from './pages/Home'
 import OngPage from './pages/ongPage'
 import Profile from "./pages/Profile";
+import SendApplication from "./pages/SendApplication";
+import Termos from "./pages/Termos";
 
 export default class App extends Component {
   render() {
@@ -28,9 +30,15 @@ export default class App extends Component {
           <Route path="/registro" component={Registro} />
           <Route path="/home" component={Home} />
           <Route path="/perfil" component={Profile} />
+          <Route path="/tos" component={Termos} />
 
           <Route path="/ong/:id" render={(props) => (
                 <OngPage key={props.match.params.nome} {...props} />
+              )}
+            />
+
+        <Route path="/aplicar/:id/:ong_id" exact render={(props) => (
+                <SendApplication key={props.match.params.nome} {...props} />
               )}
             />
 

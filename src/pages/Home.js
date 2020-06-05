@@ -25,8 +25,6 @@ function filterPeriodo(periodo, selected){
     return (periodo === selected)
 }
 
-const fotoURL = "https://picsum.photos/160"
-
 class Home extends Component {
     state = {
         openFilters: false,

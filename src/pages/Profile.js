@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {DefaultBtn, DefaultContainer, DefaultTitle} from './styles/defaultComponents'
+import {DefaultContainer} from './styles/defaultComponents'
 
 import defaultUser from '../assets/png/defaultuser.png'
 
@@ -9,6 +9,7 @@ import closeIcon from '../assets/SVG/closeWhite.svg'
 import { Link } from 'react-router-dom'
 
 import JobProfileCard from './components/jobProfileCard'
+import JobProfileCardAnalisys from './components/jobProfileCardAnalisys'
 
 class Profile extends Component {
     state = {
@@ -17,7 +18,8 @@ class Profile extends Component {
         cep: "",
         email: "",
         badges: [],
-        jobs: []
+        jobs: [],
+        ong_name: ""
     }
 
     async componentDidMount() {
@@ -43,6 +45,7 @@ class Profile extends Component {
                     this.setState({cep: payload.cep})
                     this.setState({email: payload.email})
                     this.setState({badges: payload.badges.split(',')})
+                    this.setState({ong_name: payload.ong_name})
 
                 })
                 .then(async () => {
@@ -66,12 +69,12 @@ class Profile extends Component {
             <div>
                 <DefaultContainer heightDiv="10%" widthDiv="100%" bgColor="#FF4F00" style={{justifyContent: "flex-end", alignContent: 'center', alignItems: 'center'}}>
                     <Link to="/home">
-                    <img src={closeIcon} height="35px" style={{paddingRight: 20, paddingTop: 10}}></img>
+                    <img src={closeIcon} height="35px" style={{paddingRight: 20, paddingTop: 10}} alt="Voltar"></img>
                     </Link>
                 </DefaultContainer>
 
                 <DefaultContainer heightDiv="200px" bgColor="#FF4F00">
-                <img src={defaultUser} height="100px"/>
+                <img src={defaultUser} height="100px" alt="Foto de usuário"/>
                 <h1  style={{width: "100%", textAlign: "center", fontFamily: "ElaineSansRegular", color: "white"}}>{this.state.nome}</h1>
                 <h1  style={{width: "100%", textAlign: "center", fontFamily: "ElaineSansRegular", fontSize: 12, marginTop: "-5%", color: "white"}}>{this.state.email}</h1>
                 </DefaultContainer>
@@ -81,7 +84,7 @@ class Profile extends Component {
                 <DefaultContainer heightDiv="150px" style={{justifyContent: "flex-start", flexWrap: "nowrap", overflow: "scroll", marginTop: '-5%'}}>
                     {
                         this.state.badges.flatMap(badge => {
-                            return <img src={badge} height="100px" style={{paddingLeft: 6, paddingRight: 6}}/>
+                            return <img src={badge} height="100px" style={{paddingLeft: 6, paddingRight: 6}} alt="Insignia"/>
                         }).reverse()
                     }
                 </DefaultContainer>
@@ -94,16 +97,16 @@ class Profile extends Component {
 
                         this.state.jobs.flatMap(job => {
                             if(job.confirmed_by_ong === 1) {
-                                return <JobProfileCard nomeOng="Teste" data={job.choosen_date} id={job.id}/>
+                                return <JobProfileCard nomeOng={job.ong_name} data={job.choosen_date} id={job.id} key={job.id}/>
                             }
                             else {
-                                return null
+                                return <JobProfileCardAnalisys nomeOng={job.ong_name} data={job.choosen_date} id={job.id} key={job.id}/>
                             }
                         }).reverse()
 
                         :
 
-                        <h2 style={{fontFamily: "ElaineSansRegular", width: "90%", fontSize: 16, textAlign: 'center'}}>Não há trabalhos em andamento.
+                        <h2 style={{fontFamily: "ElaineSansRegular", width: "90%", fontSize: 16, textAlign: 'center', color: "#002953"}}>Não há trabalhos em andamento.
                         <br/> <br/> Caso já tenha enviado sua aplicação para se voluntariar em alguma ONG, por favor aguarde receber um email informando que foi aceito e verifique aqui novamente.</h2>
                     
                     }

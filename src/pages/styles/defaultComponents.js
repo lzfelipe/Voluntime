@@ -37,6 +37,7 @@ export const DefaultInput = styled.input`
                 outline: none;
         }
         
+
 `
 
 export const DefaultTextArea = styled.textarea`
@@ -127,5 +128,21 @@ export const DefaultSubTitle = styled.h2 `
         font-family: 'ElaineSansRegular';
         text-align: center;
         height: 10%;
-        font-size: 20px
+        font-size: 20px;
+`
+
+export const DefaultLabelForUploadBtn = styled.label `
+        background-color: #FF4F00;
+        height: 50px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        color: white;
+        font-family: "ElaineSansRegular";
+        
+        input {
+          padding: 20
+        }
 `
