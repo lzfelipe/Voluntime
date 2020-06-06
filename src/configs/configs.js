@@ -1,3 +1,3 @@
 module.exports = {
-    apiPath: "http://api-voluntime.fveiga.com.br"
+    apiPath: "https://api-voluntime.fveiga.com.br"
 }
