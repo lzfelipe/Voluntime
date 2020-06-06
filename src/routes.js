@@ -13,6 +13,7 @@ import OngPage from './pages/ongPage'
 import Profile from "./pages/Profile";
 import SendApplication from "./pages/SendApplication";
 import Termos from "./pages/Termos";
+import Landing from "./pages/Landing";
 
 export default class App extends Component {
   render() {
@@ -25,6 +26,7 @@ export default class App extends Component {
       </style>
         <GlobalFonts />
         <Switch>
+          <Route path="/index" component={Landing} />
           <Route path="/" exact component={Main} />
           <Route path="/login"  component={Login} />
           <Route path="/registro" component={Registro} />

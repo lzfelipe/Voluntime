@@ -178,3 +178,11 @@ export const DefaultLabelForUploadBtn = styled.label `
           padding: 20
         }
 `
+
+export const LandingPageText = styled.h2`
+        color: #002953;
+        font-family: "ElaineSansRegular";
+        text-align: justify;
+        font-size: 1.4rem;
+        width: 90%
+`
