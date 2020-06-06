@@ -17,6 +17,21 @@ export const DefaultBtn = styled.button`
 
 `
 
+export const DefaultBtnNoHover = styled.button`
+        color: white;
+        background-color: #FF4F00;
+        font-size: 1.2em;
+        margin: 1em;
+        padding: 0.3em 2em;
+        border: 1px solid transparent;
+        border-radius: 20px;
+        font-family: 'ElaineSansMedium';
+
+        :hover {
+           cursor: pointer;
+        }
+`
+
 export const DefaultInput = styled.input`
         color: grey;
         background-color: none;
@@ -70,6 +85,23 @@ export const DefaultContainer = styled.div`
         background-color: ${props => props.bgColor || "#FFF"};
 
         ::-webkit-scrollbar {display:none;}
+
+        .caption {
+                display: flex;
+                justify-content: center;
+                justify-items: center;
+                text-align: center;
+                background-color: rgb(0, 41, 83, 0.8);
+                width: 87px;
+                margin-left: 1.8%;
+                color: white;
+                font-family: "ElaineSansRegular";
+                height: 100px;
+                align-content: center;
+                align-items: center;
+                opacity: ${props => props.opacity || 1};
+                flex-wrap: wrap
+        }
 `
 
 export const DefaultTitle = styled.h1`

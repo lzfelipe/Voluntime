@@ -6,9 +6,9 @@ import backIcon from '../assets/SVG/back.svg'
 class Termos extends Component {
     render() {
         return (
-            <DefaultContainer style={{textAlign: 'justify'}}>
+            <DefaultContainer style={{textAlign: 'justify', alignContent: "flex-start"}}>
 
-                <DefaultContainer heightDiv="5%" style={{ justifyContent: 'flex-start', paddingTop: "20%", paddingBottom: 20 }}>
+                <DefaultContainer heightDiv="5%" style={{ justifyContent: 'flex-start', paddingTop: 20, paddingBottom: 20 }}>
                     <Link to="/registro">
                         <img src={backIcon} style={{ height: "6vh", paddingLeft: 5}} alt="Voltar" />
                     </Link>

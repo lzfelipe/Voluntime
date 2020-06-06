@@ -12,8 +12,8 @@ class Main extends Component {
             <motion.div  animate={{x: '0vh', opacity: 1}} initial={{x: '30vh', opacity: 0}} transition={{duration: 0.3}} style={{overflowX: 'hidden'}}>
                 <DefaultContainer  style={{alignContent: 'flex-start'}}>
 
-                    <DefaultContainer heightDiv="fit">
-                        <DefaultTitle style={{color: 'white', marginBottom: "-5vh", textAlign: "center", width: '100%', zIndex: 1, paddingTop: "6vh"}}>Junte-se a nós</DefaultTitle>
+                    <DefaultContainer heightDiv="fit-content">
+                        <DefaultTitle style={{color: 'white', marginBottom: "-5vh", textAlign: "center", width: '100%', zIndex: 1, paddingTop: "6%"}}>Junte-se a nós</DefaultTitle>
                         <DefaultText style={{color: 'white', width: '100%', zIndex: 1}}>e comece a ajudar o mundo!</DefaultText>
                         <img src={bgLogin} width="100%" style={{position: 'absolute', zIndex: 0, top: -130, maxHeight: 500}} alt=""/>
                     </DefaultContainer>

@@ -31,13 +31,13 @@ class Home extends Component {
         term: "",
         ongs: [
             {id: 1, nome: "Clube do Vira-latas", causa: "Animais", distancia: 4, periodo: "noite", fotoURL: "https://pbs.twimg.com/profile_images/499159819677216769/M-ZAiT9S_400x400.jpeg"},
-            {id: 2, nome: "Brilho do Sol", causa: "Idosos", distancia: 12.7, periodo: "manha", fotoURL: "https://encurtador.com.br/pRUZ7"},
+            {id: 2, nome: "Brilho do Sol", causa: "Idosos", distancia: 12.7, periodo: "manha", fotoURL: "https://i.imgur.com/iO1fuox.jpg"},
             {id: 3, nome: "Iniciativa Verde", causa: "Meio Ambiente", distancia: 2.9, periodo: "noite", fotoURL: "https://www.iniciativaverde.org.br/site/img/marca-redes-compartilhamento.jpg"},
-            {id: 4, nome: "Gatópoles", causa: "Animais", distancia: 3.2, periodo: "tarde", fotoURL: "https://encurtador.com.br/ajp04"},
-            {id: 5, nome: "Cidadania Animal", causa: "Animais", distancia: 20.1, periodo: "manha", fotoURL: "https://encurtador.com.br/lntv7"},
-            {id: 6, nome: "A Corrente do Bem", causa: "Moradores de Rua", distancia: 18.9, periodo: "tarde", fotoURL: "https://encurtador.com.br/wEGQX"},
-            {id: 7, nome: "Banco de Alimentos", causa: "Alimento", distancia: 7.4, periodo: "noite", fotoURL: "https://encurtador.com.br/lmsC6"},
-            {id: 8, nome: "SP Invisível", causa: "Moradores de Rua", distancia: 2.3, periodo: "manha", fotoURL: "https://dsmv6m9so2sgl.cloudfront.net/photos/1713958/1557136806779_300.jpg"},
+            {id: 4, nome: "Gatópoles", causa: "Animais", distancia: 3.2, periodo: "tarde", fotoURL: "https://i.imgur.com/jmG6TGP.jpg"},
+            {id: 5, nome: "Cidadania Animal", causa: "Animais", distancia: 20.1, periodo: "manha", fotoURL: "https://i.imgur.com/2l8CMib.png"},
+            {id: 6, nome: "A Corrente do Bem", causa: "Moradores de Rua", distancia: 18.9, periodo: "tarde", fotoURL: "https://i.imgur.com/MFQJTyj.png"},
+            {id: 7, nome: "Banco de Alimentos", causa: "Alimento", distancia: 7.4, periodo: "noite", fotoURL: "https://i.imgur.com/PsBCxQf.jpg"},
+            {id: 8, nome: "SP Invisível", causa: "Moradores de Rua", distancia: 2.3, periodo: "manha", fotoURL: "https://i.imgur.com/vjW7tJY.png"},
         ],
         filtroAtivado: false,
         filtro: "distancia",
@@ -95,10 +95,10 @@ class Home extends Component {
 
                         <DefaultTitle style={{alignSelf: 'center', color: "#FFF"}}>ONGS</DefaultTitle>
                         
-                        <Link to="/perfil">
-                        <img src={defaultUser} style={{alignSelf: 'center', height: '10vh'}} alt="Foto de usuário"/>
+                        <Link to="/perfil" style={{textDecoration: "none", display: 'flex', flexWrap: "wrap", width: '10%', justifyContent: 'center', height: '50%', alignContent: 'center', alignItems: 'center', justifyItems: 'center'}}>
+                        <img src={defaultUser} style={{height: '40px'}} alt="Foto de usuário"/>
+                        <h4 style={{fontFamily: "ElainseSansBold", color: "white", height: 'fit-content', textDecorationLine: 'none', marginTop: "-1%", textAlign: "center"}}>Perfil</h4>
                         </Link>
-
                 </DefaultContainer>
 
                 <DefaultContainer style={{alignContent: 'flex-start', alignItems: "flex-start", marginTop: 20}} heightDiv="fit-content" >
@@ -122,6 +122,7 @@ class Home extends Component {
                                     <label><input type="radio" name="toggle"/><span>Meio Ambiente</span></label>
                                     <label><input type="radio" name="toggle"/><span>Idosos</span></label>
                                     <label><input type="radio" name="toggle"/><span>Alimento</span></label>
+                                    <label><input type="radio" name="toggle"/><span>Moradores de Rua</span></label>
                                     <label><input type="radio" name="toggle"/><span>Funciona de manhã</span></label>
                                     <label><input type="radio" name="toggle"/><span>Funciona de tarde</span></label>
                                     <label><input type="radio" name="toggle"/><span>Funciona de noite</span></label>
@@ -130,7 +131,7 @@ class Home extends Component {
                         ) 
                         : //Or
                         (
-                        <motion.div animate={{height: 150, opacity: 1}} initial={{height: 0, opacity: 0}} transition={{duration: .2}} style={{marginBottom: 20}} >
+                        <motion.div animate={{height: 150, opacity: 1}} initial={{height: 0, opacity: 0}} transition={{duration: .2}} style={{marginBottom: "10%", minHeight: "30%"}} >
                             <FiltersMenu>
                                 <label><input type="radio" name="toggle" onClick={() => { 
                                     this.setState({filtro: "distancia"})
@@ -147,6 +148,9 @@ class Home extends Component {
                                 <label><input type="radio" name="toggle" onClick={() => { 
                                     this.setState({filtro: "Alimento"})
                                 }} /><span>Alimento</span></label>
+                                <label><input type="radio" name="toggle" onClick={() => { 
+                                    this.setState({filtro: "Moradores de Rua"})
+                                }} /><span>Moradores de Rua</span></label>
                                 <label><input type="radio" name="toggle" onClick={() => { 
                                     this.setState({filtro: "manha"})
                                 }} /><span>Funciona de manhã</span></label>

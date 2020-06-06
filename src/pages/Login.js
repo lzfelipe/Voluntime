@@ -70,7 +70,7 @@ class Login extends Component {
                 </DefaultContainer>
 
                 <DefaultContainer heightDiv="152px">
-                    <img src={bgSignin}  width="100%" style={{position: "absolute", bottom: "-11vh", maxHeight: "30vh"}} alt=""/>
+                    <img src={bgSignin}  width="100%" style={{position: "absolute", bottom: "-25%", maxHeight: "30vh"}} alt=""/>
                 </DefaultContainer>
             </motion.div>
         );
