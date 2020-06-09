@@ -14,6 +14,8 @@ import Profile from "./pages/Profile";
 import SendApplication from "./pages/SendApplication";
 import Termos from "./pages/Termos";
 import Landing from "./pages/Landing";
+import OngsLogin from './pages/OngsLogin'
+import Recrutador from "./pages/Recrutador";
 
 export default class App extends Component {
   render() {
@@ -33,6 +35,8 @@ export default class App extends Component {
           <Route path="/home" component={Home} />
           <Route path="/perfil" component={Profile} />
           <Route path="/tos" component={Termos} />
+          <Route path="/ongLogin" component={OngsLogin} />
+          <Route path="/recrutador/:id" component={Recrutador} />
 
           <Route path="/ong/:id" render={(props) => (
                 <OngPage key={props.match.params.nome} {...props} />

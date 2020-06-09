@@ -95,9 +95,9 @@ class Home extends Component {
 
                         <DefaultTitle style={{alignSelf: 'center', color: "#FFF"}}>ONGS</DefaultTitle>
                         
-                        <Link to="/perfil" style={{textDecoration: "none", display: 'flex', flexWrap: "wrap", width: '10%', justifyContent: 'center', height: '50%', alignContent: 'center', alignItems: 'center', justifyItems: 'center'}}>
+                        <Link to="/perfil" style={{textDecoration: "none", display: 'flex', flexWrap: "wrap", width: '10%', justifyContent: 'center', height: '50%', alignContent: 'center', alignItems: 'center', justifyItems: 'center', fontFamily: "ElaineSansRegular"}}>
                         <img src={defaultUser} style={{height: '40px'}} alt="Foto de usuário"/>
-                        <h4 style={{fontFamily: "ElainseSansBold", color: "white", height: 'fit-content', textDecorationLine: 'none', marginTop: "-1%", textAlign: "center"}}>Perfil</h4>
+                        <h4 style={{fontFamily: "ElaineSansRegular", color: "white", height: 'fit-content', textDecorationLine: 'none', marginTop: "-1%", textAlign: "center"}}>Perfil</h4>
                         </Link>
                 </DefaultContainer>
 
