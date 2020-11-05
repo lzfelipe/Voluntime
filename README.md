@@ -8,8 +8,8 @@ Voluntime é um *web app* que tem como principal missão facilitar o contato, bu
 A ideia surgiu diante de uma proposta de criar um aplicativo com fins ativistas. Então me veio a mente um problema que encontrei quando tive vontade de me voluntariar, que foi esse contato e principalmente a procura de ONGs perto de mim.
 
 ## Observações
-- 1- **As ONGs** listadas na API do projeto **são reais**, porém as informações de **local** e **distância** **não**.
-- 2- Esse projeto, apesar de ter sido criado usando o ReactJS (para web) foi **projetado para ser usado apenas em dispositivos movéis**. Optei por essa abordagem pois precisava entregar esse projeto rapidamente e, na época, tinha mais facilidade com o ReactJS ao invés do React Native.
+1. **As ONGs** listadas na API do projeto **são reais**, porém as informações de **local** e **distância** **não**.
+2. Esse projeto, apesar de ter sido criado usando o ReactJS (para web) foi **projetado para ser usado apenas em dispositivos movéis**. Optei por essa abordagem pois precisava entregar esse projeto rapidamente e, na época, tinha mais facilidade com o ReactJS ao invés do React Native.
 
 ## Como rodar localmente
 *É recomendando utilizar o Yarn como package manager para evitar bugs.*
