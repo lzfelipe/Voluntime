@@ -4,7 +4,7 @@
 ## Sobre este projeto
 Voluntime é um *web app* que tem como principal missão facilitar o contato, busca e acesso a ongs para quem deseja se voluntariar e também facilita essas ongs de recrutar voluntários. Todos saem ganhando!
 
-## Porque?
+## Por que?
 A ideia surgiu diante de uma proposta de criar um aplicativo com fins ativistas. Então me veio a mente um problema que encontrei quando tive vontade de me voluntariar, que foi esse contato e principalmente a procura de ONGs perto de mim.
 
 ## Observações
